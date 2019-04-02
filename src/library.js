@@ -60,4 +60,30 @@ export default class Library {
     }
   }
 
+  /* Finish book */
+  finishCurrentBook() {
+    if (this.currentBook !== null) {
+    this.currentBook.read();
+    this.lastBook = this.currentBook;
+    this.currentBook = null;
+    this.unreadBooks--;
+    }
+  }
+  /* Filter out unread books */
+  listUnreadBooks() {
+    let unread = this.bookList.filter(urBook); 
+  
+    function urBook(knihy) {
+      if(knihy.isRead === false) {
+        return true;
+        } else {
+          return false;
+        }
+    }
+    console.log(unread);
+    console.log(`Number of unread books: ${this.unreadBooks}`);
+  }
+
 }
+
+
